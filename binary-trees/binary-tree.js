@@ -18,7 +18,7 @@ const numberOfTreeWithLabelledNodes = (n) => factorial(n) * numberOfTreeShapes(n
 const numberOfTreesWithMaxHeight = (n, labelledNodes = false) => Math.pow(2, n-1) * (labelledNodes ? factorial(n) : 1);
 
 //For a given tree height, get  minimum number of nodes present
-const getNodeCount = (treeHeight) => ++treeHeight;
+const getNodeCount = (treeHeight, isStrictTree = false) => !isStrictTree ?  treeHeight + 1 : 2*treeHeight + 1;
 
 //For a given tree height, get maximum number of nodes that can be accomodated
 //Use Geometric Progression formula n = (2^h+1) - 1
@@ -50,6 +50,7 @@ Number of Trees with maximum height: ${numberOfTreesWithMaxHeight(3, true)}
 
 For a tree of height 2:
 Minimum Number of nodes present: ${getNodeCount(2)}
+Minimum Number of nodes present in Strict Binary Tree: ${getNodeCount(2, true)}
 Maximum number of nodes that be accomodated: ${getMaxNumberOfNodes(2)}
 
 =============================
